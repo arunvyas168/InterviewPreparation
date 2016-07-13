@@ -58,3 +58,20 @@ public class Main {
         System.out.println();
     }
 }
+/*
+Sample Output:
+n!/(each count!) 4!/2!
+AABC
+AACB
+ABAC
+ABCA
+ACAB
+ACBA
+BAAC
+BACA
+BCAA
+CAAB
+CABA
+CBAA
+
+ */
