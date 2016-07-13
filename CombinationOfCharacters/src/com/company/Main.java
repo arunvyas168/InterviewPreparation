@@ -6,7 +6,7 @@ import java.util.TreeMap;
 public class Main {
 
     public static void main(String[] args) {
-        String input = "AABC";
+        String input = "ABCD";
         printStringPermutation(input);
     }
 
@@ -35,6 +35,10 @@ public class Main {
     }
 
     public static void stringPermutation_Util(char[]str, int[]count, int pos, char[]result, int len){
+        /*
+            Note: if you want to introduce window like window=3 and out put like abc bcd etc then
+            pass that window to stringPermutation_Util and check if len ==  window to print;
+        */
 
         printArray(result, len);
 
@@ -52,9 +56,31 @@ public class Main {
     }
 
     public static void printArray(char[] result, int len){
+        System.out.print("{");
         for(int i=0;i<len;i++){
             System.out.print(result[i]);
         }
-        System.out.println();
+        System.out.println("}");
     }
 }
+
+/*
+Sample Output:
+{}
+{A}
+{AB}
+{ABC}
+{ABCD}
+{ABD}
+{AC}
+{ACD}
+{AD}
+{B}
+{BC}
+{BCD}
+{BD}
+{C}
+{CD}
+{D}
+
+*/

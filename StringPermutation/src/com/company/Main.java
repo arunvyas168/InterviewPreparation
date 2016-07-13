@@ -6,8 +6,11 @@ import java.util.TreeMap;
 public class Main {
 
     public static void main(String[] args) {
-        String input = "AABC";
+        String input = "ABCD";
         printStringPermutation(input);
+        System.out.println("**** Handles Duplicate ****");
+        String input2 = "AABC";
+        printStringPermutation(input2);
     }
 
     public static void printStringPermutation(String input){
@@ -60,6 +63,35 @@ public class Main {
 }
 /*
 Sample Output:
+1.
+N! ways
+ABCD
+ABDC
+ACBD
+ACDB
+ADBC
+ADCB
+BACD
+BADC
+BCAD
+BCDA
+BDAC
+BDCA
+CABD
+CADB
+CBAD
+CBDA
+CDAB
+CDBA
+DABC
+DACB
+DBAC
+DBCA
+DCAB
+DCBA
+
+2.
+**** Handles Duplicate ****
 n!/(each count!) 4!/2!
 AABC
 AACB
