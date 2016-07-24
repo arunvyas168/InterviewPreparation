@@ -15,8 +15,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String str1 = "AACD";
-        String str2 = "ACAD";
+        String str1 = "ABCD";
+        String str2 = "CDAB";
         boolean isRotation = areRotations(str1,str2);
         System.out.println("isRotation value for "+str1+" and "+str2+ " is: "+ isRotation);
         String input = "ABC";
@@ -42,6 +42,7 @@ public class Main {
 
     /**
      * Problem:1    A Program to check if strings are rotations of each other or not
+     * http://www.geeksforgeeks.org/a-program-to-check-if-strings-are-rotations-of-each-other-or-not/
      */
 
     public static boolean areRotations(String str1, String str2){
@@ -49,9 +50,9 @@ public class Main {
         if (str1.length()!= str2.length()){
             return false;
         } else if(temp.contains(str2)){  //contains returns boolean or indexOf return index of substring
-            return false;
-        }else {
             return true;
+        }else {
+            return false;
         }
     }
 
