@@ -18,18 +18,13 @@ public class Main {
         */
         int[] auxArray = new int[array.length];
         Arrays.fill(auxArray,1);
-        for(int i=1;i<array.length;i++){
-            int j = 0;
-            while (j<i){
+        for (int i=0;i<array.length;i++){
+            for (int j=0;j<i;j++){
                 if (array[j]<array[i]){
-                    if(auxArray[i]<(auxArray[j]+1)){
-                        auxArray[i] = auxArray[j]+1;
-                    }
+                    auxArray[i] = Math.max(auxArray[i],auxArray[j]+1);
                 }
-                j++;
             }
         }
-
 
         //Find the maxIndex in the aux array.
         int maxIndex = 0;
