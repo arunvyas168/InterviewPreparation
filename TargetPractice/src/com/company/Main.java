@@ -16,6 +16,8 @@ public class Main {
         printStringCombination(input,count,0,result,0);
         System.out.println("*****************************");
         System.out.println(generateParenthesis(3));
+        System.out.println("*****************************");
+        printStringPermutationWindow(input,count, result,0,2);
     }
     public static void printStringPermutation(String input, int[] count, char[] result, int level){
         if(result.length == level){
@@ -77,6 +79,21 @@ public class Main {
 
         if(right>0){
             dfs(result, s+")", left, right-1);
+        }
+    }
+
+    public static void printStringPermutationWindow(String input, int[] count, char[] result, int level, int window){
+        if(level == window){
+            print(result,window);
+        }
+        for(int i=0;i<input.length();i++){
+            if (count[i] == 0){
+                continue;
+            }
+            result[level] = input.charAt(i);
+            count[i]--;
+            printStringPermutationWindow(input,count, result,level+1,window);
+            count[i]++;
         }
     }
 }
