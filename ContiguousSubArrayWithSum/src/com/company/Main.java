@@ -9,15 +9,40 @@ package com.company;
                 X = 40 Output :False"
 */
 
+import java.util.HashMap;
+
 public class Main {
 
     public static void main(String[] args) {
-        int[] array = {1,20,4,6,10,2,3};
+        int[] array = {1,20,4,6,10,2,3,10,8};
         int key = 18;
         boolean isSubArrayWithSum = contiguousSubArrayWithSum(array,key);
         System.out.println(isSubArrayWithSum);
+        subArrayWithSum(array,key);
+        int[] array2 = {10, 2, -2, -20, 10};
+        int key2 = -10;
+        subArrayWithSum(array2,key2);
+    }
+    /* Handles array with negative value and even if sum is negative */
+    public static void subArrayWithSum(int[] array, int sum){
+        System.out.println("************ For sum = "+sum+" ***************");
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int curSum = 0;
+        for (int i=0;i<array.length;i++){
+            curSum += array[i];
+            if (curSum == sum){
+                System.out.println("Sub-Array is: 0 to "+ i );
+            }
+            else if (hm.containsKey(curSum-sum)){
+                System.out.println("Sub-Array is: "+ (hm.get(curSum-sum)+1) +" to "+ i );
+            }
+            hm.put(curSum,i);
+        }
     }
 
+
+
+    /* Will not handle negative numbers */
     public static boolean contiguousSubArrayWithSum(int[] array, int key){
         int sum = 0;
         int startPtr = 0;
