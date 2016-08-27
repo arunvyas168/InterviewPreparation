@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Stack;
+
 /**
  * Created by arun on 7/3/16.
  */
@@ -40,6 +42,23 @@ public class BinaryTree {
         this.prev = root;
 
         binaryTreeToDoubleList(root.right);
+    }
+
+    public Node flatten(Node a) {
+        if (a == null) return null;
+        Stack<Node> stack = new Stack<>();
+        Node pri = new Node(-1);
+        stack.push(a);
+
+        while (!stack.isEmpty()) {
+            Node node = stack.pop();
+            pri.left = null;
+            pri.right = node;
+            pri = node;
+            if (node.right != null) stack.push(node.right);
+            if (node.left != null) stack.push(node.left);
+        }
+        return a;
     }
 
 }

@@ -25,9 +25,18 @@ public class Main {
 
         BinaryTree tree = new BinaryTree();
         tree.printInOrder(n1);
+        /*System.out.println();
+        tree.binaryTreeToDoubleList(n1);*/
+        //tree.printList();
+        Node head = tree.flatten(n1);
+        printList(head);
         System.out.println();
-        tree.binaryTreeToDoubleList(n1);
-        tree.printList();
-        System.out.println();
+    }
+    public static void printList(Node head){
+        Node current = head;
+        while (current!=null){
+            System.out.print(current.data+" ");
+            current = current.right;
+        }
     }
 }
