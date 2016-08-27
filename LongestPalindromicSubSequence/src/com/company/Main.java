@@ -7,26 +7,38 @@ public class Main {
         System.out.println(longestPalindromeSubSequence(seq));
     }
 
-    public static int longestPalindromeSubSequence(String str) {
-        int dp[][] = new int[str.length()][str.length()];
+    public static int longestPalindromeSubSequence(String str){
+        int[][]dp = new int[str.length()][str.length()];
+        char[] charArray = str.toCharArray();
 
-        for (int i = 0; i < str.length(); i++) {
+        //We know for sure that each character is palindrome of length 1;
+        for (int i=0;i<dp.length;i++){
             dp[i][i] = 1;
         }
 
-        for(int l = 2; l <= str.length(); l++){
-            for(int i = 0; i < str.length()-l+1; i++){
-                int j = i + l - 1;
-                if(l == 2 && str.charAt(i) == str.charAt(j)){
-                    dp[i][j] = 2;
-                }else if(str.charAt(i) == str.charAt(j)){
-                    dp[i][j] = dp[i + 1][j-1] + 2;
-                }else{
-                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+        //Fill the DP array
+        for (int len = 2;len<=str.length();len++){
+            int start = 0;
+            int end = len-1;
+            while (end<str.length()){
+                if(charArray[start]==charArray[end]){
+                    dp[start][end] = 2+dp[start+1][end-1];
+                }else {
+                    dp[start][end] = Math.max(dp[start][end-1],dp[start+1][end]);
                 }
+                start++;end++;
             }
         }
 
-        return dp[0][str.length()-1];
+        /*for (int i=0;i<dp.length;i++){
+            System.out.print("{");
+            for (int j=0;j<dp[i].length;j++){
+                System.out.print(dp[i][j]+" ");
+            }
+            System.out.println("}");
+        }*/
+
+
+        return dp[0][charArray.length-1];
     }
 }
