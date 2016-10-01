@@ -31,7 +31,27 @@ public class Main {
         System.out.println(minStack.getMin());
         System.out.print(minStack.pop()+" ");
         System.out.println(minStack.getMin());
+        System.out.println("********** MIDDLE STACK ********************");
 
+        MiddleStack midSt = new MiddleStack();
+        midSt.push(1);
+        System.out.println(midSt.getMid());
+        midSt.push(2);
+        System.out.println(midSt.getMid());
+        midSt.push(3);
+        System.out.println(midSt.getMid());
+        midSt.push(4);
+        System.out.println(midSt.getMid());
+        System.out.println("POP:"+midSt.pop());
+        System.out.println(midSt.getMid());
+        midSt.deleteMid();
+        System.out.println(midSt.getMid());
+        midSt.deleteMid();
+        System.out.println(midSt.getMid());
+        midSt.deleteMid();
+        System.out.println(midSt.getMid());
+        midSt.deleteMid();
+        System.out.println(midSt.getMid());
 
 
     }
