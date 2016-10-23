@@ -22,8 +22,8 @@ public class Main {
         //Problem 2:
         ArrayList<Tuple> list2 = new ArrayList<>();
         list2.add(new Tuple(1,4));
-        list2.add(new Tuple(14,19));
-        list2.add(new Tuple(6,10));
+        list2.add(new Tuple(10,19));
+        list2.add(new Tuple(4,10));
         list2.add(new Tuple(13,17));
         List<Tuple> result = nonOverlappingSet(list2);
         //Print List
@@ -80,8 +80,9 @@ public class Main {
                 result.add(index,new Tuple(resultFront.minRange, Math.max(resultFront.maxRange, listFront.maxRange)));
             }else {
                 result.add(listFront);
+                index++;
             }
-            index++;
+
         }
         return result;
     }
